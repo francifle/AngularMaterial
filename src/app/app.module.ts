@@ -6,23 +6,9 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-//Angular Material
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {Component} from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
-
-
-
-
-
 //Componentes
 import { LoginComponent } from './components/login/login.component';
+import { SharedModule } from './components/shared/shared.module';
 
 
 @NgModule({
@@ -32,16 +18,7 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatIconModule,
-    ReactiveFormsModule
-    
+    SharedModule
   ],
   providers: [
     provideClientHydration(),

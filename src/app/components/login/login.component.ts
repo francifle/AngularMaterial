@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { timeout } from 'rxjs';
 
 
 @Component({
@@ -9,11 +11,65 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   form: FormGroup;
+  loading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
     this.form = this.fb.group({
-      usuario: ['', Validators.required]
+      usuario: ['', Validators.required],
+      password: ['', Validators.required]
     })
   }
+
+  ngOnInit(): void{
+
+  }
+
+  Ingresar(){
+    const usuario = this.form.value.usuario;
+    const password = this.form.value.password;
+
+    if(usuario == 'francifle' && password == '123123'){
+      this.fakeLoading()
+    } else if (usuario == '' && password != '123123') {{
+      this.errorUser();
+    }}
+    else if (usuario != 'francifle' && password == '') {{
+      this.errorPassword();
+    }} else {
+      this.error();
+    }
+  }
+
+  errorUser(){
+    this._snackBar.open('Falta el usuario','',{
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
+  }
+
+  errorPassword(){
+    this._snackBar.open('Falta la contraseña','',{
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
+  }
+
+  error(){
+    this._snackBar.open('Contraseña o usuario incorrecta','',{
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    })
+  }
+
+  fakeLoading(){
+    this.loading = true;
+    setTimeout(() => {
+    this.loading = false;
+   }, 1500); 
+  }
+  
 }
 
