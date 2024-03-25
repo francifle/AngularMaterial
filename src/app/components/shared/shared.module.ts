@@ -19,10 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [],
   imports: [
     CommonModule,
-    AppRoutingModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
@@ -33,10 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   exports:[
     CommonModule,
-    AppRoutingModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
     MatDividerModule,

@@ -4,11 +4,16 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { InicioComponent } from './inicio/inicio.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from '../../app-routing.module';
 
 
 @NgModule({
   declarations: [
-    InicioComponent
+    InicioComponent,
+    ReportesComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
