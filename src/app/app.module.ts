@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Componentes
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
