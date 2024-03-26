@@ -11,8 +11,12 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinner, MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { AppRoutingModule } from '../../app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import {MatTable, MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 
 
 @NgModule({
@@ -28,6 +32,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatProgressSpinner,
+    MatToolbarModule,
+    MatIconModule,
+    HttpClientModule,
+    MatTableModule,
+    MatTooltipModule
   ],
   exports:[
     CommonModule,
@@ -40,6 +49,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatProgressSpinner,
+    MatToolbarModule,
+    MatIconModule,
+    HttpClientModule,
+    MatTableModule,
+    MatTooltipModule
   ]
 })
 export class SharedModule { }

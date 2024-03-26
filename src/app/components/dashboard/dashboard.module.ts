@@ -6,6 +6,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard.component';
+import { SharedModule } from '../shared/shared.module';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { DashboardComponent } from './dashboard.component';
     InicioComponent,
     ReportesComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsuariosComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }
