@@ -10,3 +10,9 @@ th {
 .pointer {
     cursor: pointer;
 }
+
+.mat-mdc-form-field {
+    margin-top: 10px;
+    font-size: 14px;
+    width: 100%;
+  }
