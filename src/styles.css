@@ -9,3 +9,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  

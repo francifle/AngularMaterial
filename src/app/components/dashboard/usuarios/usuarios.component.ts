@@ -3,6 +3,8 @@ import { Usuario } from '../../../interfaces/usuarios';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { UsuarioService } from '../../../services/usuario.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface PeriodicElement {
   nombre: string;
@@ -20,26 +22,24 @@ export interface PeriodicElement {
 })
 export class UsuariosComponent {
 
-   listUsuario: Usuario[] = [
-    {position: 1, nombre: 'Ramón Sosa', edad: 28, correo: 'ramon@gmail.com'},
-    {position: 2, nombre: 'Raúl Herrera', edad: 22, correo: 'raul@gmail.com'},
-    {position: 3, nombre: 'Valeria Ramirez', edad: 35, correo: 'valeria@outlook.com'},
-    {position: 4, nombre: 'Horacio Acosta', edad: 44, correo: 'horacio@hotmail.es'},
-    {position: 5, nombre: 'Mario Suarez', edad: 18, correo: 'mario@hotmail.com'},
-    {position: 6, nombre: 'Sergio Herrera', edad: 15, correo: 'tupapiazotador@gmail.com'},
-    {position: 7, nombre: 'Mauricio Romero', edad: 54, correo: 'mauricio@gmail.com'},
-    {position: 8, nombre: 'Mario Garcia', edad: 864, correo: 'mario@gmail.com'},
-    {position: 9, nombre: 'Valeria Medina', edad: 12, correo: 'valeria@outlook.com'},
-    {position: 10, nombre: 'Natalia Fernandez', edad: 56, correo: 'natalia@hotmail.com'},
-  ];
+  listUsuarios: Usuario[] = []
 
   displayedColumns: string[] = ['position', 'nombre', 'edad', 'correo', 'acciones'];
-  dataSource = new MatTableDataSource(this.listUsuario);
+  dataSource!: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
+  constructor(private _usuarioService: UsuarioService, private _snackBar: MatSnackBar) { }
   
+  ngOnInit(): void{
+    this.cargarUsuario();
+  }
+
+  cargarUsuario(){
+    this.listUsuarios = this._usuarioService.getUsuario();
+    this.dataSource = new MatTableDataSource(this.listUsuarios)
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -51,6 +51,16 @@ export class UsuariosComponent {
 
   }
 
+  eliminarUsuario(index: number){
+      this._usuarioService.eliminarUsuario(index);
+      this.cargarUsuario();
 
+      this._snackBar.open('El usuario fue eliminado',''),{
+        duration: 10,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom'
+    }
+  }
 }
+
 
