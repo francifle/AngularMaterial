@@ -1,0 +1,61 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Crear Usuarios</span>
+    </mat-toolbar>
+</div>
+
+<mat-card style="margin-top: 10px;">
+    <form action="">
+        <mat-grid-list cols="4" rowHeight="70px">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput placeholder="Ej: Francifle">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="5">
+                <img src="./assets/img/usuario.png" width="250" height="250" alt="">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Ej: Francisco">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput placeholder="Ej: Fleytas">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Sexo</mat-label>
+                    <mat-select [disabled]="disableSelect.value">
+                      <mat-option value="option1">Hombre</mat-option>
+                      <mat-option value="option2">Mujer</mat-option>
+                      <mat-option value="option3">Siempre</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <div class="example-button-row">
+                    <button mat-button>Volver</button>
+                </div>                
+                <button mat-flat-button color="primary">Guardar</button>
+
+            </mat-grid-tile>
+        </mat-grid-list>
+        <br>
+        <br>
+        <mat-grid-list cols="4" rowHeight="100px">
+            @for (tile of tiles; track tile) {
+              <mat-grid-tile
+                [colspan]="tile.cols"
+                [rowspan]="tile.rows"
+                [style.background]="tile.color">{{tile.text}}</mat-grid-tile>
+            }
+          </mat-grid-list>
+
+    </form>
+</mat-card>

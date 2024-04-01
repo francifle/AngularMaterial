@@ -4,13 +4,15 @@ import { DashboardComponent } from './dashboard.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
     {path: '', redirectTo: 'inicio', pathMatch: 'full'},
     {path: 'inicio', component: InicioComponent},
     {path: 'usuarios', component: UsuariosComponent},
-    {path: 'reportes', component: ReportesComponent}
+    {path: 'reportes', component: ReportesComponent},
+    {path: 'crear-usuario', component: CrearUsuarioComponent},
   ]}
 ];
 
