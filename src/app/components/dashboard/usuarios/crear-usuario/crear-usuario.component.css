@@ -34,3 +34,10 @@ section {
     width: 120px;
   }
   
+  .bgcolor {
+    background-color: #f5f5f5;
+}
+
+.mat-form-field {
+  background-color: transparent;
+}
