@@ -7,16 +7,16 @@ import { Usuario } from '../interfaces/usuarios';
 export class UsuarioService {
 
   listUsuario: Usuario[] = [
-    {position: 1, nombre: 'Ramón Sosa', datepick: new Date(12,11,2002), correo: 'ramon@gmail.com', sexo: 'Hombre'},
-    {position: 2, nombre: 'Raúl Herrera', datepick: new Date(31,7,2003), correo: 'raul@gmail.com', sexo: 'Hombre'},
-    {position: 3, nombre: 'Valeria Ramirez', datepick: new Date(8,2,1992), correo: 'valeria@outlook.com', sexo: 'Mujer'},
-    {position: 4, nombre: 'Horacio Acosta', datepick: new Date(17,6,1989), correo: 'horacio@hotmail.es', sexo: 'Hombre'},
-    {position: 5, nombre: 'Mario Suarez', datepick: new Date(7,7,1996), correo: 'mario@hotmail.com', sexo: 'Hombre'},
-    {position: 6, nombre: 'Sergio Herrera', datepick: new Date(21,10,1104), correo: 'tupapiazotador@gmail.com', sexo: 'Hombre'},
-    {position: 7, nombre: 'Mauricio Romero', datepick: new Date(7,6,1989), correo: 'mauricio@gmail.com', sexo: 'Hombre'},
-    {position: 8, nombre: 'Mario Garcia', datepick: new Date(1,8,1992), correo: 'mario@gmail.com', sexo: 'Hombre'},
-    {position: 9, nombre: 'Valeria Medina', datepick: new Date(22,4,2002), correo: 'valeria@outlook.com', sexo: 'Mujer'},
-    {position: 10, nombre: 'Natalia Fernandez', datepick: new Date(28,2,1991), correo: 'natalia@hotmail.com', sexo: 'Mujer'},
+    {nombre: 'Ramón Sosa', datepick: new Date(2002, 10, 12), correo: 'ramon@gmail.com', sexo: 'Hombre'},
+    {nombre: 'Raúl Herrera', datepick: new Date(2003, 7, 31), correo: 'raul@gmail.com', sexo: 'Hombre'},
+    {nombre: 'Valeria Ramirez', datepick: new Date(1992, 2, 8), correo: 'valeria@outlook.com', sexo: 'Mujer'},
+    {nombre: 'Horacio Acosta', datepick: new Date(1989, 6, 17), correo: 'horacio@hotmail.es', sexo: 'Hombre'},
+    {nombre: 'Mario Suarez', datepick: new Date(1996, 7, 7), correo: 'mario@hotmail.com', sexo: 'Hombre'},
+    {nombre: 'Sergio Herrera', datepick: new Date(1104, 10, 21), correo: 'tupapiazotador@gmail.com', sexo: 'Hombre'},
+    {nombre: 'Mauricio Romero', datepick: new Date(1989, 6, 7), correo: 'mauricio@gmail.com', sexo: 'Hombre'},
+    {nombre: 'Mario Garcia', datepick: new Date(1992, 8, 1), correo: 'mario@gmail.com', sexo: 'Hombre'},
+    {nombre: 'Valeria Medina', datepick: new Date(2002, 4, 22), correo: 'valeria@outlook.com', sexo: 'Mujer'},
+    {nombre: 'Natalia Fernandez', datepick: new Date(1991, 2, 28), correo: 'natalia@hotmail.com', sexo: 'Mujer'},
   ];
 
   constructor() { }
@@ -25,8 +25,16 @@ export class UsuarioService {
     return this.listUsuario.slice();
   }
 
+  obtenerFechaSinHora(fecha: Date): string {
+    return fecha.toLocaleDateString();
+  }
+
+
   eliminarUsuario(index: number){
     this.listUsuario.splice(index, 1);
   }
 
+  agregarUsuario(usuario: Usuario){
+    this.listUsuario.unshift(usuario)
+  }
 }

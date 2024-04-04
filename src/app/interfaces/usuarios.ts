@@ -1,7 +1,6 @@
 export interface Usuario{
-    nombre: string;
-    correo: string;
+    nombre: String;
+    correo: String;
     datepick: Date;
-    position: number;
-    sexo: string;
+    sexo: String;
 }

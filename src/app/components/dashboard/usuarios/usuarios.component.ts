@@ -24,7 +24,7 @@ export class UsuariosComponent {
 
   listUsuarios: Usuario[] = []
 
-  displayedColumns: string[] = ['position', 'nombre', 'datepick', 'correo', 'sexo', 'acciones'];
+  displayedColumns: string[] = ['nombre', 'datepick', 'correo', 'sexo', 'acciones'];
   dataSource!: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

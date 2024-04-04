@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../../../interfaces/usuarios';
+import { UsuarioService } from '../../../../services/usuario.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -13,7 +15,13 @@ export class CrearUsuarioComponent {
 
   form: FormGroup
 
-  constructor( private fb: FormBuilder){
+  constructor( private fb: FormBuilder, 
+    
+    private _usuarioService: UsuarioService,
+    private router: Router
+    ){
+
+
     this.form = this.fb.group({
       nombre: ['', Validators.required],
       correo: ['', Validators.required],
@@ -23,15 +31,17 @@ export class CrearUsuarioComponent {
   }
 
   agregarUsuario(){
-    console.log(this.form)
 
     const user: Usuario = {
       nombre: this.form.value.nombre,
       correo: this.form.value.correo,
       datepick: this.form.value.datepick,
-      position: this.form.value.position,
       sexo: this.form.value.sexo
     }
+
+    this._usuarioService.agregarUsuario(user);
+    this.router.navigate(['/dashboard/usuarios'])
+
   }
 
   tiles: any[] = [
